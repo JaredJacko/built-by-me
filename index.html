@@ -1,0 +1,1863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Built By [Your Name] — Eat Like I Do. Train Like I Do.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f1ea;
+  --bg-warm: #ede5d4;
+  --paper: #faf6ee;
+  --ink: #0f0f0f;
+  --ink-soft: #2a2a28;
+  --muted: #6b6660;
+  --line: rgba(15, 15, 15, 0.1);
+  --accent: #ff4e1a;
+  --accent-dark: #c43818;
+  --green: #1f3a25;
+  --gold: #d4a13a;
+  --card: #ffffff;
+  --shadow: 0 12px 32px rgba(15, 15, 15, 0.08);
+  --shadow-lg: 0 24px 64px rgba(15, 15, 15, 0.14);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.display { font-family: 'Anton', 'Archivo', sans-serif; font-weight: 400; letter-spacing: -0.01em; text-transform: uppercase; }
+.archivo { font-family: 'Archivo', sans-serif; }
+
+/* ===== TOP BANNER ===== */
+.top-banner {
+  background: var(--ink);
+  color: var(--bg);
+  text-align: center;
+  padding: 11px 20px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.top-banner a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ===== NAV ===== */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 22px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+.logo {
+  font-family: 'Anton', sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: var(--ink);
+  text-transform: uppercase;
+}
+.logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-actions { display: flex; gap: 20px; align-items: center; }
+.nav-actions a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.nav-cart {
+  background: var(--ink);
+  color: var(--bg);
+  padding: 10px 18px;
+  border-radius: 100px;
+  transition: all 0.2s;
+}
+.nav-cart:hover { background: var(--accent); }
+
+/* Mobile hamburger menu */
+.mobile-menu-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  flex-direction: column;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+}
+.mobile-menu-btn span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--ink);
+  transition: transform 0.3s, opacity 0.3s;
+}
+.mobile-menu-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.mobile-menu-btn.open span:nth-child(2) { opacity: 0; }
+.mobile-menu-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg);
+  z-index: 99;
+  padding: 100px 32px 40px;
+  flex-direction: column;
+  gap: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.mobile-menu.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.mobile-menu a {
+  font-family: 'Anton', sans-serif;
+  font-size: 32px;
+  color: var(--ink);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  transition: color 0.2s;
+}
+.mobile-menu a:hover { color: var(--accent); }
+
+/* ===== TICKER MARQUEE ===== */
+.ticker {
+  background: var(--accent);
+  color: white;
+  padding: 14px 0;
+  overflow: hidden;
+  position: relative;
+  border-top: 1px solid var(--accent-dark);
+  border-bottom: 1px solid var(--accent-dark);
+}
+.ticker-track {
+  display: flex;
+  white-space: nowrap;
+  animation: scroll-left 30s linear infinite;
+  width: max-content;
+}
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-right: 24px;
+  font-family: 'Anton', sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.ticker-item .dot { color: var(--gold); font-size: 14px; }
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ===== HERO HEADLINE ===== */
+.hero-headline {
+  padding: 100px 32px 60px;
+  text-align: center;
+  background: var(--bg);
+}
+.hero-headline .eyebrow {
+  font-family: 'Anton', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+.hero-headline h1 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(56px, 12vw, 180px);
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 32px;
+}
+.hero-headline h1 span { display: block; }
+.hero-headline h1 .accent { color: var(--accent); }
+.hero-headline h1 .outline {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--ink);
+  text-stroke: 2px var(--ink);
+}
+.hero-headline p {
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 620px;
+  margin: 0 auto 36px;
+  line-height: 1.55;
+}
+.hero-headline p strong { color: var(--ink); font-weight: 700; }
+.hero-cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--bg);
+  padding: 18px 38px;
+  border-radius: 100px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  font-family: 'Inter', sans-serif;
+}
+.btn-primary:hover { background: var(--accent); transform: translateY(-2px); }
+.btn-primary .arrow { transition: transform 0.3s; }
+.btn-primary:hover .arrow { transform: translateX(4px); }
+.btn-ghost {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 18px 24px;
+  border-bottom: 2px solid var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-ghost:hover { color: var(--accent); border-color: var(--accent); }
+
+.trust-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 40px;
+  font-size: 13px;
+}
+.trust-faces { display: flex; }
+.trust-face {
+  width: 32px;
+  height: 32px;
+  border-radius: 100px;
+  border: 2px solid var(--bg);
+  margin-left: -8px;
+  font-family: 'Anton', sans-serif;
+  font-size: 13px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.trust-face:first-child { margin-left: 0; }
+.trust-row .stars { color: var(--gold); letter-spacing: 2px; }
+.trust-row strong { color: var(--ink); font-weight: 700; }
+
+/* ===== SCROLLING DIVIDER ===== */
+.scroll-divider {
+  background: var(--bg);
+  padding: 28px 0;
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.scroll-divider-track {
+  display: flex;
+  white-space: nowrap;
+  animation: scroll-left 40s linear infinite;
+  width: max-content;
+}
+.scroll-divider-item {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(40px, 7vw, 90px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.scroll-divider-item .outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--ink);
+}
+.scroll-divider-item .star {
+  color: var(--accent);
+  font-size: clamp(28px, 5vw, 56px);
+  display: inline-block;
+  transform: translateY(-4px);
+}
+
+/* ===== FEATURE HERO (Complete Pack first) ===== */
+.feature-hero {
+  padding: 100px 32px;
+  background: var(--bg-warm);
+  position: relative;
+  overflow: hidden;
+}
+.feature-hero-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.feature-tag {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 8px 16px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.feature-hero h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(48px, 7vw, 96px);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.feature-hero h2 .accent { color: var(--accent); }
+.feature-hero .subtitle {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(20px, 2.6vw, 28px);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 28px;
+  line-height: 1.1;
+}
+.feature-hero p.copy {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin-bottom: 36px;
+  max-width: 460px;
+}
+.feature-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.feature-price-row .now {
+  font-family: 'Anton', sans-serif;
+  font-size: 56px;
+  line-height: 1;
+  color: var(--ink);
+}
+.feature-price-row .was {
+  font-size: 22px;
+  text-decoration: line-through;
+  color: var(--muted);
+  font-weight: 500;
+}
+.feature-price-row .save {
+  background: var(--accent);
+  color: white;
+  padding: 5px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.feature-image {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff4e1a 0%, #1f3a25 50%, #0f0f0f 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.feature-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.15), transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(0, 0, 0, 0.3), transparent 60%);
+}
+.feature-cover-title {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(48px, 7vw, 96px);
+  line-height: 0.9;
+  color: white;
+  text-align: center;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+}
+.feature-cover-title .vol {
+  display: block;
+  font-size: 16px;
+  letter-spacing: 0.3em;
+  font-weight: 400;
+  opacity: 0.7;
+  margin-bottom: 16px;
+}
+.feature-cover-title .accent { color: var(--gold); }
+
+/* ===== SECTION HEADLINE STACK ===== */
+.stack-headline {
+  padding: 120px 32px 60px;
+  text-align: center;
+  background: var(--bg);
+}
+.stack-headline h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(56px, 10vw, 140px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.stack-headline h2 .outline {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--ink);
+  display: block;
+}
+.stack-headline h2 .accent { color: var(--accent); display: block; }
+.stack-headline .dots {
+  font-family: 'Anton', sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.3em;
+  color: var(--muted);
+  margin-top: 24px;
+  text-transform: uppercase;
+}
+
+/* ===== PRODUCT GRID ===== */
+.products {
+  padding: 60px 32px 120px;
+  background: var(--bg);
+}
+.product-grid {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 28px;
+}
+.product-card {
+  background: var(--card);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid var(--line);
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+.product-card.col-2 { grid-column: span 2; }
+.product-card.col-3 { grid-column: span 3; }
+.product-card.col-6 { grid-column: span 6; }
+
+.prod-image {
+  aspect-ratio: 4/3;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.product-card.col-6 .prod-image { aspect-ratio: 16/7; }
+.prod-card-shred .prod-image { background: linear-gradient(135deg, #ff4e1a 0%, #8a2810 100%); }
+.prod-card-bulk .prod-image { background: linear-gradient(135deg, #1f3a25 0%, #0a1810 100%); }
+.prod-card-split .prod-image { background: linear-gradient(135deg, #0f0f0f 0%, #2a2a28 100%); }
+.prod-card-bulk-bundle .prod-image { background: linear-gradient(135deg, #1f3a25 0%, #4a6a30 50%, #0f0f0f 100%); }
+.prod-card-shred-bundle .prod-image { background: linear-gradient(135deg, #ff4e1a 0%, #d4a13a 50%, #0f0f0f 100%); }
+.prod-card-complete .prod-image { background: linear-gradient(135deg, #ff4e1a 0%, #1f3a25 35%, #0f0f0f 70%, #d4a13a 100%); }
+
+.prod-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.08), transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(0, 0, 0, 0.45), transparent 60%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Real photo backgrounds per product */
+.prod-photo {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+.prod-photo.shred,
+.prod-photo.shred-bundle {
+  background-image: url('images/abs.png');
+  background-size: cover;
+  background-position: center 40%;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+.prod-photo.bulk,
+.prod-photo.bulk-bundle { background-image: url('images/bicep.png'); }
+.prod-photo.split { background-image: url('images/split.png'); }
+/* For the wide Complete Pack card, position abs photo to fill cleanly */
+.prod-photo.complete {
+  background-image: url('images/abs.png');
+  background-size: cover;
+  background-position: center 35%;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* The bicep photo has a clean white/light background and a watermark at the bottom.
+   Crop off the bottom 8% to remove the watermark by using background-position and a slightly larger size. */
+.prod-card-bulk .prod-image,
+.prod-card-bulk-bundle .prod-image {
+  background: #f0ece4 !important;
+}
+.prod-card-bulk .prod-photo.bulk,
+.prod-card-bulk-bundle .prod-photo.bulk-bundle {
+  background-size: 100% 110%;
+  background-position: center top;
+  background-repeat: no-repeat;
+  filter: contrast(1.05);
+}
+
+/* Dark overlay for text readability */
+.prod-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(0,0,0,0.1) 0%,
+    rgba(0,0,0,0.0) 40%,
+    rgba(0,0,0,0.4) 75%,
+    rgba(0,0,0,0.75) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+.prod-card-bulk .prod-overlay,
+.prod-card-bulk-bundle .prod-overlay {
+  background: linear-gradient(180deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0) 50%,
+    rgba(0,0,0,0.3) 85%,
+    rgba(0,0,0,0.65) 100%);
+}
+/* Keep text white on bulking cards but add a stronger shadow for readability over the bicep photo */
+.prod-card-bulk .prod-cover-text,
+.prod-card-bulk-bundle .prod-cover-text {
+  text-shadow: 0 2px 12px rgba(0,0,0,0.85), 0 1px 3px rgba(0,0,0,0.9);
+}
+/* Adjust tag visibility on light cream background */
+.prod-card-bulk .prod-tag,
+.prod-card-bulk-bundle .prod-tag {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.prod-cover-text {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(28px, 3.5vw, 44px);
+  line-height: 0.9;
+  color: white;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  position: absolute;
+  z-index: 3;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  text-align: left;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.6);
+}
+.product-card.col-6 .prod-cover-text { font-size: clamp(36px, 5vw, 64px); }
+.prod-cover-text small {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  font-weight: 600;
+  opacity: 0.8;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.prod-cover-text .accent { color: var(--gold); }
+
+.prod-tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 6px 12px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  z-index: 3;
+}
+.prod-tag.new { background: var(--accent); color: white; }
+.prod-tag.best { background: var(--gold); color: var(--ink); }
+.prod-tag.save { background: var(--green); color: white; }
+
+.prod-discount {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: white;
+  color: var(--ink);
+  padding: 6px 12px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  z-index: 3;
+  border: 1.5px solid var(--ink);
+}
+
+.prod-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.product-card.col-6 .prod-body { padding: 40px; }
+
+.prod-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+.product-card.col-6 .prod-title { font-size: 56px; }
+
+.prod-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+.product-card.col-6 .prod-desc { font-size: 16px; max-width: 600px; }
+
+.prod-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.prod-price {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.prod-price .now {
+  font-family: 'Anton', sans-serif;
+  font-size: 32px;
+  color: var(--ink);
+  line-height: 1;
+}
+.product-card.col-6 .prod-price .now { font-size: 48px; }
+.prod-price .was {
+  font-size: 14px;
+  text-decoration: line-through;
+  color: var(--muted);
+}
+.product-card.col-6 .prod-price .was { font-size: 18px; }
+.prod-buy {
+  background: var(--ink);
+  color: var(--bg);
+  border: none;
+  padding: 14px 20px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.prod-buy:hover { background: var(--accent); }
+.product-card.col-6 .prod-buy { padding: 18px 28px; font-size: 13px; }
+
+/* ===== TRANSFORMATION ===== */
+.transformation {
+  padding: 140px 32px;
+  background: var(--ink);
+  color: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+.transformation::before {
+  content: '';
+  position: absolute;
+  top: -150px;
+  right: -150px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 78, 26, 0.18), transparent 60%);
+}
+.trans-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+.trans-eyebrow {
+  font-family: 'Anton', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+  text-align: center;
+}
+.transformation h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(48px, 7vw, 100px);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.transformation h2 .accent { color: var(--gold); }
+.transformation .sub {
+  font-size: 18px;
+  color: rgba(245, 241, 234, 0.7);
+  max-width: 620px;
+  margin: 0 auto 70px;
+  line-height: 1.6;
+  text-align: center;
+}
+.trans-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.trans-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 32px;
+  position: relative;
+}
+.trans-card .tag {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: var(--accent);
+  color: white;
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.trans-photo {
+  aspect-ratio: 4/5;
+  border-radius: 10px;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.trans-photo.before { background-image: url('images/before.jpeg'); background-color: #2a2a28; }
+.trans-photo.after { background-image: url('images/after.jpeg'); background-color: #1a0a1a; }
+.trans-photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.55) 100%);
+  pointer-events: none;
+}
+.trans-photo::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-family: 'Anton', sans-serif;
+  font-size: 56px;
+  color: white;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+.trans-stat { display: flex; justify-content: space-between; gap: 16px; }
+.trans-stat-item .v {
+  font-family: 'Anton', sans-serif;
+  font-size: 36px;
+  color: var(--bg);
+  line-height: 1;
+}
+.trans-stat-item .l {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245, 241, 234, 0.5);
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+/* ===== WHY ===== */
+.why { padding: 140px 32px; background: var(--bg-warm); }
+.why-inner { max-width: 1200px; margin: 0 auto; }
+.why-head { text-align: center; margin-bottom: 80px; }
+.why-head h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(48px, 7vw, 96px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.why-head h2 .accent { color: var(--accent); }
+.why-head p { font-size: 17px; color: var(--muted); line-height: 1.6; max-width: 620px; margin: 0 auto; }
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.why-card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 40px 32px;
+  border: 1px solid var(--line);
+  transition: transform 0.3s;
+}
+.why-card:hover { transform: translateY(-4px); }
+.why-num {
+  font-family: 'Anton', sans-serif;
+  font-size: 80px;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+.why-card h3 {
+  font-family: 'Anton', sans-serif;
+  font-size: 28px;
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 1.05;
+}
+.why-card p { font-size: 15px; color: var(--muted); line-height: 1.6; }
+
+/* ===== TESTIMONIALS ===== */
+.testimonials { padding: 140px 32px; background: var(--bg); }
+.test-head { text-align: center; margin-bottom: 80px; }
+.test-head h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(48px, 7vw, 96px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.test-head h2 .accent { color: var(--accent); }
+.test-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.test-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+}
+.test-stars { color: var(--gold); letter-spacing: 3px; font-size: 14px; margin-bottom: 18px; }
+.test-quote {
+  font-family: 'Archivo', sans-serif;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--ink);
+  margin-bottom: 28px;
+  flex-grow: 1;
+}
+.test-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.test-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: 'Anton', sans-serif;
+  font-size: 18px;
+}
+.test-name { font-size: 14px; font-weight: 700; }
+.test-result { font-size: 12px; color: var(--accent); font-weight: 600; letter-spacing: 0.06em; }
+
+/* ===== FAQ ===== */
+.faq { padding: 140px 32px; background: var(--bg-warm); }
+.faq-inner { max-width: 800px; margin: 0 auto; }
+.faq-head { text-align: center; margin-bottom: 60px; }
+.faq-head h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(44px, 6vw, 80px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.faq-head h2 .accent { color: var(--accent); }
+.faq-item {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.faq-item:hover { border-color: rgba(15, 15, 15, 0.18); }
+.faq-q {
+  padding: 24px 28px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  font-size: 15px;
+  font-weight: 600;
+}
+.faq-q .plus {
+  font-size: 24px;
+  color: var(--accent);
+  transition: transform 0.3s;
+  font-weight: 300;
+  line-height: 1;
+}
+.faq-item.open .faq-q .plus { transform: rotate(45deg); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding: 0 28px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.faq-item.open .faq-a { max-height: 300px; padding: 0 28px 24px; }
+
+/* ===== FINAL CTA ===== */
+.final-cta {
+  padding: 140px 32px;
+  background: var(--ink);
+  color: var(--bg);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.final-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255, 78, 26, 0.2), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(212, 161, 58, 0.12), transparent 40%);
+}
+.final-inner { max-width: 820px; margin: 0 auto; position: relative; z-index: 2; }
+.final-cta h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(56px, 9vw, 130px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.final-cta h2 .accent { color: var(--gold); }
+.final-cta p {
+  font-size: 18px;
+  color: rgba(245, 241, 234, 0.7);
+  margin-bottom: 40px;
+  line-height: 1.6;
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.final-cta .btn-primary { background: var(--accent); padding: 22px 44px; font-size: 14px; }
+.final-cta .btn-primary:hover { background: var(--gold); color: var(--ink); }
+.final-guarantee {
+  margin-top: 28px;
+  font-size: 12px;
+  color: rgba(245, 241, 234, 0.5);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* ===== FOOTER ===== */
+footer { background: #050505; color: var(--bg); padding: 80px 32px 32px; }
+.foot-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid rgba(245, 241, 234, 0.1);
+}
+.foot-brand .logo { color: var(--bg); font-size: 36px; margin-bottom: 20px; display: block; }
+.foot-brand p { color: rgba(245, 241, 234, 0.5); font-size: 14px; max-width: 340px; line-height: 1.6; }
+.foot-col h4 {
+  font-family: 'Anton', sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 22px;
+  font-weight: 400;
+}
+.foot-col ul { list-style: none; }
+.foot-col ul li { margin-bottom: 10px; }
+.foot-col ul li a { color: rgba(245, 241, 234, 0.7); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+.foot-col ul li a:hover { color: var(--accent); }
+.foot-bottom {
+  max-width: 1320px;
+  margin: 28px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 11px;
+  color: rgba(245, 241, 234, 0.4);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-headline .eyebrow { animation: fadeUp 0.6s ease-out backwards; animation-delay: 0.1s; }
+.hero-headline h1 { animation: fadeUp 0.8s ease-out backwards; animation-delay: 0.2s; }
+.hero-headline p { animation: fadeUp 0.8s ease-out backwards; animation-delay: 0.4s; }
+.hero-cta { animation: fadeUp 0.8s ease-out backwards; animation-delay: 0.55s; }
+.trust-row { animation: fadeUp 0.8s ease-out backwards; animation-delay: 0.7s; }
+
+/* ===== TABLET (768px - 968px) ===== */
+@media (max-width: 968px) {
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: flex; }
+  .mobile-menu { display: flex; }
+  .nav-inner { padding: 16px 20px; gap: 16px; }
+  .nav-cart { padding: 9px 14px; font-size: 11px; }
+  .logo { font-size: 22px; }
+
+  .ticker-item { font-size: 18px; gap: 18px; padding-right: 18px; }
+
+  .hero-headline { padding: 60px 20px 40px; }
+  .hero-headline h1 { font-size: clamp(44px, 11vw, 80px); }
+  .hero-headline .eyebrow { font-size: 12px; letter-spacing: 0.22em; }
+  .hero-headline p { font-size: 16px; }
+
+  .scroll-divider-item { font-size: clamp(36px, 8vw, 64px); padding: 0 20px; gap: 20px; }
+  .scroll-divider-item .star { font-size: clamp(24px, 5vw, 40px); }
+
+  .feature-hero { padding: 70px 24px; }
+  .feature-hero-inner { grid-template-columns: 1fr; gap: 36px; }
+  .feature-hero h2 { font-size: clamp(42px, 8vw, 64px); }
+  .feature-hero .subtitle { font-size: clamp(18px, 3vw, 24px); }
+  .feature-hero p.copy { font-size: 16px; max-width: 100%; }
+  .feature-image { aspect-ratio: 4/5; max-width: 400px; margin: 0 auto; }
+  .feature-price-row .now { font-size: 44px; }
+  .feature-price-row .was { font-size: 18px; }
+
+  .stack-headline { padding: 80px 20px 40px; }
+  .stack-headline h2 { font-size: clamp(44px, 10vw, 88px); }
+
+  .products { padding: 40px 20px 80px; }
+  .product-grid { grid-template-columns: 1fr; gap: 20px; }
+  .product-card.col-2, .product-card.col-3, .product-card.col-6 { grid-column: span 1; }
+  .product-card.col-6 .prod-image { aspect-ratio: 4/3; }
+  .product-card.col-6 .prod-body { padding: 28px; }
+  .product-card.col-6 .prod-title { font-size: 36px; }
+  .product-card.col-6 .prod-desc { font-size: 14px; }
+  .product-card.col-6 .prod-price .now { font-size: 40px; }
+  .product-card.col-6 .prod-buy { padding: 14px 20px; font-size: 11px; }
+  .prod-cover-text { font-size: clamp(24px, 5vw, 36px); }
+
+  .transformation { padding: 80px 20px; }
+  .transformation h2 { font-size: clamp(40px, 9vw, 72px); }
+  .trans-grid { grid-template-columns: 1fr; gap: 20px; }
+  .trans-card { padding: 24px; }
+  .trans-photo::after { font-size: 40px; }
+  .trans-stat-item .v { font-size: 28px; }
+
+  .why { padding: 80px 20px; }
+  .why-grid { grid-template-columns: 1fr; gap: 20px; }
+  .why-head { margin-bottom: 50px; }
+  .why-head h2 { font-size: clamp(38px, 8vw, 64px); }
+  .why-card { padding: 32px 24px; }
+  .why-num { font-size: 60px; }
+  .why-card h3 { font-size: 22px; }
+
+  .testimonials { padding: 80px 20px; }
+  .test-head { margin-bottom: 50px; }
+  .test-head h2 { font-size: clamp(38px, 8vw, 64px); }
+  .test-grid { grid-template-columns: 1fr; gap: 16px; }
+  .test-card { padding: 28px; }
+  .test-quote { font-size: 17px; }
+
+  .faq { padding: 80px 20px; }
+  .faq-head h2 { font-size: clamp(36px, 8vw, 56px); }
+  .faq-q { padding: 20px 22px; font-size: 14px; }
+  .faq-a { padding: 0 22px; font-size: 13px; }
+  .faq-item.open .faq-a { padding: 0 22px 22px; }
+
+  .final-cta { padding: 80px 20px; }
+  .final-cta h2 { font-size: clamp(48px, 11vw, 88px); }
+  .final-cta p { font-size: 16px; }
+  .final-cta .btn-primary { padding: 18px 32px; font-size: 13px; }
+
+  footer { padding: 60px 20px 24px; }
+  .foot-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .foot-brand .logo { font-size: 28px; }
+}
+
+/* ===== MOBILE (under 600px) ===== */
+@media (max-width: 600px) {
+  .top-banner { font-size: 10px; padding: 8px 12px; letter-spacing: 0.06em; }
+  .nav-inner { padding: 14px 16px; }
+  .logo { font-size: 20px; }
+  .nav-cart { padding: 8px 12px; font-size: 10px; }
+
+  .ticker { padding: 11px 0; }
+  .ticker-item { font-size: 15px; gap: 14px; padding-right: 14px; }
+
+  .hero-headline { padding: 50px 18px 36px; }
+  .hero-headline .eyebrow { font-size: 11px; margin-bottom: 18px; }
+  .hero-headline h1 { font-size: clamp(38px, 12vw, 64px); margin-bottom: 22px; }
+  .hero-headline p { font-size: 15px; margin-bottom: 28px; line-height: 1.5; }
+  .hero-cta { gap: 10px; }
+  .btn-primary { padding: 15px 26px; font-size: 12px; width: 100%; justify-content: center; }
+  .btn-ghost { padding: 14px 0; font-size: 12px; width: 100%; justify-content: center; }
+  .trust-row { margin-top: 30px; flex-direction: column; gap: 10px; text-align: center; }
+  .trust-row strong { font-size: 12px; }
+
+  .scroll-divider { padding: 20px 0; }
+  .scroll-divider-item { font-size: clamp(28px, 9vw, 48px); padding: 0 14px; gap: 14px; }
+  .scroll-divider-item .star { font-size: clamp(18px, 5vw, 28px); }
+
+  .feature-hero { padding: 50px 18px; }
+  .feature-tag { font-size: 10px; padding: 6px 12px; }
+  .feature-hero h2 { font-size: clamp(36px, 11vw, 56px); margin-bottom: 14px; }
+  .feature-hero .subtitle { font-size: 16px; margin-bottom: 20px; }
+  .feature-hero p.copy { font-size: 14px; margin-bottom: 24px; }
+  .feature-image { aspect-ratio: 4/5; max-width: 100%; }
+  .feature-cover-title { font-size: clamp(36px, 10vw, 56px) !important; }
+  .feature-cover-title .vol { font-size: 12px !important; margin-bottom: 10px !important; }
+  .feature-price-row { gap: 10px; flex-wrap: wrap; }
+  .feature-price-row .now { font-size: 36px; }
+  .feature-price-row .was { font-size: 16px; }
+  .feature-price-row .save { font-size: 10px; padding: 4px 10px; }
+
+  .stack-headline { padding: 60px 18px 30px; }
+  .stack-headline h2 { font-size: clamp(36px, 11vw, 68px); }
+  .stack-headline .dots { font-size: 14px; margin-top: 16px; }
+
+  .products { padding: 30px 16px 60px; }
+  .product-grid { gap: 16px; }
+  .product-card { border-radius: 14px; }
+  .prod-body { padding: 22px; }
+  .product-card.col-6 .prod-body { padding: 22px; }
+  .prod-title { font-size: 26px; }
+  .product-card.col-6 .prod-title { font-size: 30px; }
+  .prod-desc { font-size: 13px; margin-bottom: 18px; }
+  .product-card.col-6 .prod-desc { font-size: 13px; }
+  .prod-cover-text { font-size: clamp(22px, 6vw, 30px); }
+  .product-card.col-6 .prod-cover-text { font-size: clamp(26px, 7vw, 36px); }
+  .prod-cover-text small { font-size: 9px; }
+  .prod-tag { font-size: 9px; padding: 5px 10px; top: 12px; left: 12px; }
+  .prod-discount { font-size: 9px; padding: 5px 10px; top: 12px; right: 12px; }
+  .prod-foot { flex-wrap: wrap; gap: 12px; }
+  .prod-price .now { font-size: 28px; }
+  .product-card.col-6 .prod-price .now { font-size: 36px; }
+  .prod-price .was { font-size: 13px; }
+  .prod-buy { padding: 12px 18px; font-size: 10px; flex: 1; min-width: 120px; justify-content: center; }
+  .product-card.col-6 .prod-buy { padding: 14px 20px; font-size: 11px; }
+
+  .transformation { padding: 60px 18px; }
+  .trans-eyebrow { font-size: 11px; margin-bottom: 14px; }
+  .transformation h2 { font-size: clamp(36px, 11vw, 60px); margin-bottom: 16px; }
+  .transformation .sub { font-size: 15px; margin-bottom: 40px; line-height: 1.55; }
+  .trans-card { padding: 20px; border-radius: 14px; }
+  .trans-card .tag { top: 18px; right: 18px; font-size: 10px; padding: 5px 10px; }
+  .trans-photo { aspect-ratio: 3/4; margin-bottom: 18px; }
+  .trans-photo::after { font-size: 32px; bottom: 16px; left: 16px; }
+  .trans-stat { gap: 12px; }
+  .trans-stat-item .v { font-size: 22px; }
+  .trans-stat-item .l { font-size: 9px; }
+
+  .why { padding: 60px 18px; }
+  .why-head { margin-bottom: 40px; }
+  .why-head h2 { font-size: clamp(34px, 10vw, 56px); margin-bottom: 16px; }
+  .why-head p { font-size: 15px; }
+  .why-card { padding: 28px 22px; border-radius: 14px; }
+  .why-num { font-size: 52px; margin-bottom: 14px; }
+  .why-card h3 { font-size: 20px; margin-bottom: 10px; }
+  .why-card p { font-size: 14px; }
+
+  .testimonials { padding: 60px 18px; }
+  .test-head { margin-bottom: 40px; }
+  .test-head h2 { font-size: clamp(34px, 10vw, 56px); }
+  .test-card { padding: 24px; border-radius: 14px; }
+  .test-quote { font-size: 16px; margin-bottom: 22px; }
+  .test-stars { font-size: 13px; margin-bottom: 12px; }
+  .test-avatar { width: 40px; height: 40px; font-size: 16px; }
+  .test-name { font-size: 13px; }
+  .test-result { font-size: 11px; }
+
+  .faq { padding: 60px 18px; }
+  .faq-head { margin-bottom: 40px; }
+  .faq-head h2 { font-size: clamp(32px, 9vw, 52px); }
+  .faq-q { padding: 18px 20px; font-size: 13px; gap: 14px; }
+  .faq-q .plus { font-size: 22px; }
+  .faq-a { padding: 0 20px; font-size: 13px; }
+  .faq-item.open .faq-a { padding: 0 20px 20px; max-height: 400px; }
+
+  .final-cta { padding: 70px 18px; }
+  .final-cta h2 { font-size: clamp(40px, 12vw, 72px); margin-bottom: 18px; }
+  .final-cta p { font-size: 15px; margin-bottom: 32px; }
+  .final-cta .btn-primary { padding: 16px 24px; font-size: 11px; }
+  .final-guarantee { font-size: 10px; margin-top: 22px; letter-spacing: 0.06em; }
+
+  footer { padding: 50px 18px 24px; }
+  .foot-inner { grid-template-columns: 1fr; gap: 28px; padding-bottom: 36px; }
+  .foot-brand .logo { font-size: 26px; }
+  .foot-brand p { font-size: 13px; }
+  .foot-col h4 { font-size: 14px; margin-bottom: 14px; }
+  .foot-col ul li { margin-bottom: 8px; }
+  .foot-col ul li a { font-size: 13px; }
+  .foot-bottom { font-size: 10px; flex-direction: column; gap: 10px; text-align: center; }
+}
+
+/* ===== EXTRA SMALL (under 380px - older/smaller phones) ===== */
+@media (max-width: 380px) {
+  .hero-headline h1 { font-size: 36px; }
+  .feature-hero h2 { font-size: 32px; }
+  .stack-headline h2 { font-size: 32px; }
+  .transformation h2 { font-size: 32px; }
+  .final-cta h2 { font-size: 36px; }
+  .prod-title { font-size: 22px; }
+  .ticker-item { font-size: 13px; }
+}
+
+/* ===== Prevent horizontal scrolling ===== */
+@media (max-width: 968px) {
+  html, body { overflow-x: hidden; max-width: 100vw; }
+  section, footer, nav, .ticker, .scroll-divider, .top-banner { max-width: 100vw; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-banner">
+  🔥 Flash sale ends Friday · Save up to 40% on the Complete Pack
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">BUILT<span>.</span>BY ME</a>
+    <div class="nav-links">
+      <a href="#products">Shop All</a>
+      <a href="#products">Bundles</a>
+      <a href="#products">E-Books</a>
+      <a href="#results">Results</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-actions">
+      <a href="#" class="nav-cart">$0.00 · Cart</a>
+      <button class="mobile-menu-btn" id="menuBtn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile slide-down menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#products" onclick="closeMobileMenu()">Shop All</a>
+  <a href="#products" onclick="closeMobileMenu()">Bundles</a>
+  <a href="#products" onclick="closeMobileMenu()">E-Books</a>
+  <a href="#results" onclick="closeMobileMenu()">Results</a>
+  <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-item">
+      <span>• BUNDLE & SAVE • SHOP NOW •</span>
+      <span class="dot">★</span>
+      <span>• NEW DROP • THE COMPLETE PACK •</span>
+      <span class="dot">★</span>
+      <span>• SAVE 40% • LIMITED TIME •</span>
+      <span class="dot">★</span>
+      <span>• EAT LIKE I DO • TRAIN LIKE I DO •</span>
+      <span class="dot">★</span>
+    </div>
+    <div class="ticker-item">
+      <span>• BUNDLE & SAVE • SHOP NOW •</span>
+      <span class="dot">★</span>
+      <span>• NEW DROP • THE COMPLETE PACK •</span>
+      <span class="dot">★</span>
+      <span>• SAVE 40% • LIMITED TIME •</span>
+      <span class="dot">★</span>
+      <span>• EAT LIKE I DO • TRAIN LIKE I DO •</span>
+      <span class="dot">★</span>
+    </div>
+  </div>
+</div>
+
+<!-- HERO HEADLINE -->
+<section class="hero-headline">
+  <div class="eyebrow">★ Eat like I do · Train like I do ★</div>
+  <h1>
+    <span>Build the body</span>
+    <span class="outline">you've been</span>
+    <span class="accent">chasing.</span>
+  </h1>
+  <p>
+    The exact <strong>meal plans, training splits, and macros</strong> I used to transform my physique — distilled into programs you can start tonight.
+  </p>
+  <div class="hero-cta">
+    <a href="#products" class="btn-primary">Shop The Programs <span class="arrow">→</span></a>
+    <a href="#results" class="btn-ghost">See Results ↓</a>
+  </div>
+  <div class="trust-row">
+    <div class="trust-faces">
+      <div class="trust-face" style="background:#ff4e1a">M</div>
+      <div class="trust-face" style="background:#1f3a25">J</div>
+      <div class="trust-face" style="background:#d4a13a;color:#0f0f0f">S</div>
+      <div class="trust-face" style="background:#6b6660">R</div>
+    </div>
+    <span class="stars">★★★★★</span>
+    <strong>4.9/5 · 2,400+ reviews</strong>
+  </div>
+</section>
+
+<!-- SCROLLING DIVIDER -->
+<div class="scroll-divider">
+  <div class="scroll-divider-track">
+    <div class="scroll-divider-item">
+      <span>WHAT'S NEW</span>
+      <span class="star">★</span>
+      <span class="outline">WHAT'S NEW</span>
+      <span class="star">★</span>
+      <span>WHAT'S NEW</span>
+      <span class="star">★</span>
+      <span class="outline">WHAT'S NEW</span>
+      <span class="star">★</span>
+    </div>
+    <div class="scroll-divider-item">
+      <span>WHAT'S NEW</span>
+      <span class="star">★</span>
+      <span class="outline">WHAT'S NEW</span>
+      <span class="star">★</span>
+      <span>WHAT'S NEW</span>
+      <span class="star">★</span>
+      <span class="outline">WHAT'S NEW</span>
+      <span class="star">★</span>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURE HERO — Complete Pack first -->
+<section class="feature-hero">
+  <div class="feature-hero-inner">
+    <div>
+      <span class="feature-tag">★ Bundle & Save · Most Popular ★</span>
+      <h2>The <span class="accent">Complete</span> Pack</h2>
+      <div class="subtitle">All three programs · Cut, bulk, train.</div>
+      <p class="copy">
+        The Shred E-Book, The Bulk E-Book, and my full 5-day training split — bundled at the lowest price possible. Every phase of your physique journey, mapped out.
+      </p>
+      <div class="feature-price-row">
+        <span class="now">$69</span>
+        <span class="was">$117</span>
+        <span class="save">Save 40%</span>
+      </div>
+      <a href="#" class="btn-primary">Shop The Pack <span class="arrow">→</span></a>
+    </div>
+    <div class="feature-image">
+      <div style="position:absolute;inset:0;background-image:url('images/abs.png');background-size:cover;background-position:center 40%;z-index:0;"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.15) 0%,rgba(0,0,0,0) 40%,rgba(0,0,0,0.5) 80%,rgba(0,0,0,0.85) 100%);z-index:1;"></div>
+      <div class="feature-cover-title" style="position:relative;z-index:2;">
+        <span class="vol">All Three Programs</span>
+        The Complete<br><span class="accent">Pack</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCROLLING DIVIDER -->
+<div class="scroll-divider">
+  <div class="scroll-divider-track">
+    <div class="scroll-divider-item">
+      <span>THE PROGRAMS</span>
+      <span class="star">★</span>
+      <span class="outline">THE PROGRAMS</span>
+      <span class="star">★</span>
+      <span>THE PROGRAMS</span>
+      <span class="star">★</span>
+      <span class="outline">THE PROGRAMS</span>
+      <span class="star">★</span>
+    </div>
+    <div class="scroll-divider-item">
+      <span>THE PROGRAMS</span>
+      <span class="star">★</span>
+      <span class="outline">THE PROGRAMS</span>
+      <span class="star">★</span>
+      <span>THE PROGRAMS</span>
+      <span class="star">★</span>
+      <span class="outline">THE PROGRAMS</span>
+      <span class="star">★</span>
+    </div>
+  </div>
+</div>
+
+<!-- STACK HEADLINE -->
+<section class="stack-headline" id="products">
+  <h2>
+    <span class="outline">Pick your goal.</span>
+    <span class="accent">I'll handle the blueprint.</span>
+  </h2>
+  <div class="dots">★ ★ ★</div>
+</section>
+
+<!-- PRODUCT GRID -->
+<section class="products">
+  <div class="product-grid">
+
+    <!-- Row 1: Bundles (col-3 each) -->
+    <div class="product-card col-3 prod-card-shred-bundle">
+      <div class="prod-image">
+        <div class="prod-photo shred-bundle"></div>
+        <div class="prod-overlay"></div>
+        <span class="prod-tag new">★ Bundle</span>
+        <span class="prod-discount">Save $20</span>
+        <div class="prod-cover-text"><small>Bundle · Cutting</small>Shred + <span class="accent">Train</span></div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-title">The Shredding Bundle</div>
+        <div class="prod-desc">Strip body fat while keeping every pound of muscle — the Shred e-book paired with my full 5-day training split.</div>
+        <div class="prod-foot">
+          <div class="prod-price"><span class="now">$49</span><span class="was">$68</span></div>
+          <button class="prod-buy">Add Bundle →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card col-3 prod-card-bulk-bundle">
+      <div class="prod-image">
+        <div class="prod-photo bulk-bundle"></div>
+        <div class="prod-overlay"></div>
+        <span class="prod-tag new">★ Bundle</span>
+        <span class="prod-discount">Save $20</span>
+        <div class="prod-cover-text"><small>Bundle · Bulking</small>Bulk + <span class="accent">Train</span></div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-title">The Bulking Bundle</div>
+        <div class="prod-desc">Add serious lean mass — the Bulk e-book paired with my full 5-day training split, programmed for surplus.</div>
+        <div class="prod-foot">
+          <div class="prod-price"><span class="now">$49</span><span class="was">$68</span></div>
+          <button class="prod-buy">Add Bundle →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2: Singles (col-2 each) -->
+    <div class="product-card col-2 prod-card-shred">
+      <div class="prod-image">
+        <div class="prod-photo shred"></div>
+        <div class="prod-overlay"></div>
+        <span class="prod-tag">E-Book</span>
+        <span class="prod-discount">33% Off</span>
+        <div class="prod-cover-text"><small>Vol. 01</small>Shred</div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-title">The Shred</div>
+        <div class="prod-desc">Drop body fat without losing the muscle you worked for. 60+ recipes, full macro breakdowns, 8-week schedule.</div>
+        <div class="prod-foot">
+          <div class="prod-price"><span class="now">$39</span><span class="was">$59</span></div>
+          <button class="prod-buy">Add →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card col-2 prod-card-bulk">
+      <div class="prod-image">
+        <div class="prod-photo bulk"></div>
+        <div class="prod-overlay"></div>
+        <span class="prod-tag">E-Book</span>
+        <span class="prod-discount">33% Off</span>
+        <div class="prod-cover-text"><small>Vol. 02</small>Bulk</div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-title">The Bulk</div>
+        <div class="prod-desc">Add lean mass without the gut. Calorie-dense meals built around real, satisfying food. 60+ recipes.</div>
+        <div class="prod-foot">
+          <div class="prod-price"><span class="now">$39</span><span class="was">$59</span></div>
+          <button class="prod-buy">Add →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card col-2 prod-card-split">
+      <div class="prod-image">
+        <div class="prod-photo split"></div>
+        <div class="prod-overlay"></div>
+        <span class="prod-tag">Training</span>
+        <span class="prod-discount">40% Off</span>
+        <div class="prod-cover-text"><small>Training Program</small>My Split</div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-title">My Split</div>
+        <div class="prod-desc">The exact 5-day push/pull/legs split I run. Every set, every rep, every tempo. Progressive overload built in.</div>
+        <div class="prod-foot">
+          <div class="prod-price"><span class="now">$29</span><span class="was">$49</span></div>
+          <button class="prod-buy">Add →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 3: Complete Pack (col-6) -->
+    <div class="product-card col-6 prod-card-complete">
+      <div class="prod-image">
+        <div class="prod-photo complete"></div>
+        <div class="prod-overlay"></div>
+        <span class="prod-tag best">★ Most Popular · Save 40%</span>
+        <div class="prod-cover-text">The Complete <span class="accent">Pack</span></div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-title">The Complete Pack</div>
+        <div class="prod-desc">All three programs at the lowest price possible. The Shred E-Book, The Bulk E-Book, and my full 5-Day Training Split. Cut, bulk, or maintain — the system for every phase of your physique journey. Includes bonus macro calculator and grocery lists.</div>
+        <div class="prod-foot">
+          <div class="prod-price"><span class="now">$69</span><span class="was">$117</span></div>
+          <button class="prod-buy">Get The Complete Pack →</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SCROLLING DIVIDER -->
+<div class="scroll-divider">
+  <div class="scroll-divider-track">
+    <div class="scroll-divider-item">
+      <span>REAL RESULTS</span>
+      <span class="star">★</span>
+      <span class="outline">REAL RESULTS</span>
+      <span class="star">★</span>
+      <span>REAL RESULTS</span>
+      <span class="star">★</span>
+      <span class="outline">REAL RESULTS</span>
+      <span class="star">★</span>
+    </div>
+    <div class="scroll-divider-item">
+      <span>REAL RESULTS</span>
+      <span class="star">★</span>
+      <span class="outline">REAL RESULTS</span>
+      <span class="star">★</span>
+      <span>REAL RESULTS</span>
+      <span class="star">★</span>
+      <span class="outline">REAL RESULTS</span>
+      <span class="star">★</span>
+    </div>
+  </div>
+</div>
+
+<!-- TRANSFORMATION -->
+<section class="transformation" id="results">
+  <div class="trans-inner">
+    <div class="trans-eyebrow">★ +30KG · 66LB GAINED ★</div>
+    <h2>This isn't theory.<br>This is <span class="accent">my body.</span></h2>
+    <p class="sub">From 60kg to 90kg. Every program I sell is something I've personally lived — the same meals, the same lifts, the same discipline that got me here.</p>
+    <div class="trans-grid">
+      <div class="trans-card">
+        <span class="tag">Before</span>
+        <div class="trans-photo before" data-label="Then"></div>
+        <div class="trans-stat">
+          <div class="trans-stat-item"><div class="v">60 KG</div><div class="l">Body Weight</div></div>
+          <div class="trans-stat-item"><div class="v">132 LB</div><div class="l">In Pounds</div></div>
+        </div>
+      </div>
+      <div class="trans-card">
+        <span class="tag">After</span>
+        <div class="trans-photo after" data-label="Now"></div>
+        <div class="trans-stat">
+          <div class="trans-stat-item"><div class="v">90 KG</div><div class="l">Body Weight</div></div>
+          <div class="trans-stat-item"><div class="v">198 LB</div><div class="l">In Pounds</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why">
+  <div class="why-inner">
+    <div class="why-head">
+      <h2>Built from <span class="accent">experience</span>,<br>not internet theory.</h2>
+      <p>Every recipe was eaten. Every set was lifted. This is the system I followed — refined down to what actually moved the needle.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-num">01</div>
+        <h3>Real food, real flavour</h3>
+        <p>No bland chicken and rice. Meals you'll actually want to eat — that just happen to hit your macros perfectly.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">02</div>
+        <h3>Macros done for you</h3>
+        <p>Every meal has the full calorie and macro breakdown. No more weighing food and guessing — the math is already done.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">03</div>
+        <h3>Training that pairs</h3>
+        <p>The split I follow alongside these meal plans. Programmed for progressive overload, not random hype.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="test-head">
+    <h2>The proof is in <span class="accent">their</span> mirrors.</h2>
+  </div>
+  <div class="test-grid">
+    <div class="test-card">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-quote">"Dropped 18 lbs in 10 weeks following the Shred plan. The meals don't feel like a diet — that's the whole game."</p>
+      <div class="test-author">
+        <div class="test-avatar" style="background:#ff4e1a">M</div>
+        <div><div class="test-name">Marcus T.</div><div class="test-result">-18 LBS · 10 WEEKS</div></div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-quote">"Gained 12 lbs of lean mass on the Bulking Bundle. First time I've put on size without getting soft. Worth every cent."</p>
+      <div class="test-author">
+        <div class="test-avatar" style="background:#1f3a25">J</div>
+        <div><div class="test-name">Jake R.</div><div class="test-result">+12 LBS LEAN · 16 WEEKS</div></div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-quote">"Got the Complete Pack and never looked back. Using the bulk now, will switch to shred for summer. Best fitness purchase I've made."</p>
+      <div class="test-author">
+        <div class="test-avatar" style="background:#d4a13a;color:#0f0f0f">S</div>
+        <div><div class="test-name">Sam K.</div><div class="test-result">YEAR-ROUND</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <div class="faq-head">
+      <h2>Common <span class="accent">questions</span>.</h2>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do I get the e-books after purchase?<span class="plus">+</span></div>
+      <div class="faq-a">Instant PDF download right after checkout, plus a copy emailed to you. View on any device — phone, tablet, laptop.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Will this work if I'm a beginner?<span class="plus">+</span></div>
+      <div class="faq-a">Yes. Every program assumes nothing — the macros, lifts, and progressions are explained from zero.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What's the difference between a Bundle and the Complete Pack?<span class="plus">+</span></div>
+      <div class="faq-a">Bundles pair one e-book (Shred or Bulk) with my training split. The Complete Pack gives you everything — both e-books and the split — at the steepest discount.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Are the meals expensive or hard to make?<span class="plus">+</span></div>
+      <div class="faq-a">No. Most recipes use 6–8 grocery-store ingredients and take under 20 minutes.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do you offer refunds?<span class="plus">+</span></div>
+      <div class="faq-a">14-day money-back guarantee. If the program isn't for you, email me and I'll refund — no questions, no hoops.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-inner">
+    <h2>Stop scrolling.<br><span class="accent">Start building.</span></h2>
+    <p>The body you want isn't waiting on more research. It's waiting on a system — I'll give you mine.</p>
+    <a href="#products" class="btn-primary">Get The Complete Pack — $69 <span class="arrow">→</span></a>
+    <div class="final-guarantee">★ 14-day money-back guarantee · Instant download · Lifetime access ★</div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <a href="#" class="logo">BUILT<span style="color:#ff4e1a">.</span>BY ME</a>
+      <p>Programs and meal plans built from real transformation — not theory. Made for people serious about changing how they look.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#products">All Programs</a></li>
+        <li><a href="#products">Bundles</a></li>
+        <li><a href="#products">E-Books</a></li>
+        <li><a href="#products">Complete Pack</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#results">Transformations</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#">Refund Policy</a></li>
+        <li><a href="#">Terms & Privacy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Built.By.Me · All rights reserved</span>
+    <span>★ Made with intent ★ Train smart ★</span>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (menuBtn) {
+    menuBtn.addEventListener('click', () => {
+      menuBtn.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+  }
+  function closeMobileMenu() {
+    if (menuBtn) menuBtn.classList.remove('open');
+    if (mobileMenu) mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  document.querySelectorAll('.prod-buy').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const original = btn.textContent;
+      btn.textContent = '✓ Added';
+      btn.style.background = '#1f3a25';
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.style.background = '';
+      }, 1400);
+    });
+  });
+</script>
+</body>
+</html>
