@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Medical Disclaimer · Built.By Me</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f1ea;
+  --bg-warm: #ede5d4;
+  --paper: #faf6ee;
+  --ink: #0f0f0f;
+  --ink-soft: #2a2a28;
+  --muted: #6b6660;
+  --line: rgba(15, 15, 15, 0.1);
+  --accent: #ff4e1a;
+  --gold: #d4a13a;
+  --card: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV (simplified) */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 22px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-family: 'Anton', sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: var(--ink);
+  text-transform: uppercase;
+}
+.logo span { color: var(--accent); }
+.nav-back {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 10px 18px;
+  border: 1.5px solid var(--ink);
+  border-radius: 100px;
+  transition: all 0.2s;
+}
+.nav-back:hover { background: var(--ink); color: var(--bg); }
+
+/* LEGAL CONTENT */
+.legal-hero {
+  padding: 80px 32px 40px;
+  text-align: center;
+  background: var(--bg);
+}
+.legal-hero .eyebrow {
+  font-family: 'Anton', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+.legal-hero h1 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(44px, 8vw, 88px);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 18px;
+}
+.legal-hero .updated {
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.legal-body {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 40px 32px 100px;
+}
+.legal-body h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(26px, 4vw, 36px);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 48px 0 16px;
+  color: var(--ink);
+  line-height: 1.1;
+}
+.legal-body h2:first-child { margin-top: 0; }
+.legal-body h3 {
+  font-family: 'Archivo', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin: 28px 0 10px;
+}
+.legal-body p {
+  font-size: 16px;
+  margin-bottom: 16px;
+  color: var(--ink-soft);
+}
+.legal-body strong { color: var(--ink); font-weight: 700; }
+.legal-body ul, .legal-body ol {
+  margin: 0 0 20px 24px;
+  padding: 0;
+}
+.legal-body li {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: var(--ink-soft);
+  padding-left: 6px;
+}
+.legal-body li::marker { color: var(--accent); }
+.legal-body a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.legal-callout {
+  background: #FFF4ED;
+  border-left: 5px solid var(--accent);
+  border-top: 1px solid var(--accent);
+  border-right: 1px solid var(--accent);
+  border-bottom: 1px solid var(--accent);
+  padding: 22px 24px;
+  margin: 28px 0;
+  border-radius: 4px;
+}
+.legal-callout .label {
+  font-family: 'Archivo', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+  display: block;
+}
+.legal-callout p { font-size: 15px; margin-bottom: 10px; }
+.legal-callout p:last-child { margin-bottom: 0; }
+
+/* FOOTER */
+footer { background: #050505; color: var(--bg); padding: 60px 32px 28px; }
+.foot-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(245, 241, 234, 0.1);
+}
+.foot-inner .logo { color: var(--bg); font-size: 30px; margin-bottom: 14px; display: inline-block; }
+.foot-inner p { color: rgba(245, 241, 234, 0.55); font-size: 14px; max-width: 480px; margin: 0 auto 20px; }
+.foot-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+.foot-links a {
+  color: rgba(245, 241, 234, 0.7);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+.foot-links a:hover { color: var(--accent); }
+.foot-bottom {
+  max-width: 1320px;
+  margin: 24px auto 0;
+  text-align: center;
+  font-size: 11px;
+  color: rgba(245, 241, 234, 0.4);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .nav-inner { padding: 14px 16px; }
+  .logo { font-size: 20px; }
+  .nav-back { padding: 8px 14px; font-size: 11px; }
+  .legal-hero { padding: 50px 18px 30px; }
+  .legal-body { padding: 30px 18px 70px; }
+  .legal-body h2 { margin: 36px 0 12px; }
+  .legal-body p, .legal-body li { font-size: 15px; }
+  footer { padding: 40px 18px 20px; }
+  .foot-links { gap: 16px; }
+  .foot-links a { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">BUILT<span>.</span>BY ME</a>
+    <a href="index.html" class="nav-back">← Back to Shop</a>
+  </div>
+</nav>
+
+<section class="legal-hero">
+  <div class="eyebrow">★ LEGAL ★</div>
+  <h1>Medical Disclaimer</h1>
+  <div class="updated">Last updated: 19 May 2026</div>
+</section>
+
+<section class="legal-body">
+
+<div class="legal-callout">
+  <span class="label">⚠ READ THIS BEFORE STARTING ANY PROGRAM</span>
+  <p>This disclaimer is part of your agreement when you purchase or use any product from Built.By Me. By downloading or using any e-book, training program, or other content from this site, you confirm that you have read, understood, and accepted everything in this document.</p>
+</div>
+
+<h2>Not Medical Advice</h2>
+<p>Built.By Me publishes general fitness and nutrition information based on the personal experience of its author. <strong>None of the content on this website or in any product is medical, dietary, psychological, or professional advice.</strong></p>
+<p>The author is not a registered doctor, dietitian, nutritionist, exercise physiologist, physiotherapist, psychologist, or qualified personal trainer. Information provided is for educational and entertainment purposes only.</p>
+
+<h2>Consult a Healthcare Professional</h2>
+<p>You should consult a qualified healthcare professional before starting any new exercise program, changing your diet, or making any significant change to your lifestyle — particularly if you:</p>
+<ul>
+  <li>Have any pre-existing medical condition (including but not limited to diabetes, heart disease, high blood pressure, kidney or liver issues, eating disorders, hormone disorders, or musculoskeletal injuries)</li>
+  <li>Are pregnant, planning to become pregnant, or breastfeeding</li>
+  <li>Are under 18 years of age</li>
+  <li>Are over 65 years of age and not currently active</li>
+  <li>Take any prescription or over-the-counter medication</li>
+  <li>Have a history of disordered eating or mental-health concerns</li>
+  <li>Have recently been ill, injured, or had surgery</li>
+</ul>
+
+<h2>Risks of Exercise and Diet Change</h2>
+<p>Strength training, calorie-restricted diets, and high-calorie diets all carry inherent risks. These may include but are not limited to: muscle injury, joint injury, dehydration, dizziness, fainting, hormonal disruption, micronutrient deficiencies, gastrointestinal distress, fatigue, sleep disruption, and (in rare cases) more serious health events including heart attack and stroke.</p>
+<p>You acknowledge these risks and agree to use any program from Built.By Me at your own risk.</p>
+
+<h2>No Guaranteed Results</h2>
+<p>Individual results vary substantially based on genetics, starting condition, effort, consistency, sleep, stress, recovery, and many other factors outside our control. Any examples, testimonials, before-and-after photos, or stated outcomes on this site or in any product are illustrative only and not guarantees of results for any particular user.</p>
+
+<h2>Assumption of Risk</h2>
+<p>By purchasing or using any product from Built.By Me, you:</p>
+<ol>
+  <li>Confirm that you are physically and mentally fit to undertake the program you are buying</li>
+  <li>Accept full personal responsibility for any consequences of following or attempting to follow the program</li>
+  <li>Release Built.By Me, its author, and any associated parties from any liability for any injury, illness, damage, or loss arising from the use or misuse of the program — to the maximum extent permitted by law</li>
+</ol>
+
+<div class="legal-callout">
+  <span class="label">⚠ STOP IMMEDIATELY IF</span>
+  <p>If at any point during a workout or while following a meal plan you feel sharp pain, dizziness, light-headedness, chest pain, shortness of breath, irregular heartbeat, fainting, or any other concerning symptom — <strong>stop immediately and seek medical attention.</strong></p>
+</div>
+
+<h2>Eating Disorders</h2>
+<p>If you have any current or past history of an eating disorder (including anorexia, bulimia, binge eating disorder, or orthorexia), <strong>this program is not for you.</strong> Please seek guidance from a registered dietitian and a mental-health professional with experience in disordered eating before considering any structured nutrition program.</p>
+<p>Resources: <a href="https://nedc.com.au/" target="_blank" rel="noopener">National Eating Disorders Collaboration (Australia)</a> · <a href="https://butterfly.org.au/" target="_blank" rel="noopener">Butterfly Foundation</a> (1800 33 4673)</p>
+
+<h2>Australian Consumer Law</h2>
+<p>Nothing in this disclaimer attempts to exclude any right or remedy that cannot be excluded under Australian Consumer Law. If a court finds that any part of this disclaimer is unenforceable, the rest of it continues to apply.</p>
+
+<h2>Contact</h2>
+<p>Questions about this disclaimer: <a href="mailto:hello@builtbyme.com.au">hello@builtbyme.com.au</a></p>
+
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <a href="index.html" class="logo">BUILT<span style="color:#ff4e1a">.</span>BY ME</a>
+    <p>Programs and meal plans built from real transformation — not theory.</p>
+    <div class="foot-links">
+      <a href="index.html">Shop</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="disclaimer.html">Medical Disclaimer</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Built.By.Me · All rights reserved</span>
+  </div>
+</footer>
+
+</body>
+</html>

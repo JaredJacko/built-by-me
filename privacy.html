@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy Policy · Built.By Me</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f1ea;
+  --bg-warm: #ede5d4;
+  --paper: #faf6ee;
+  --ink: #0f0f0f;
+  --ink-soft: #2a2a28;
+  --muted: #6b6660;
+  --line: rgba(15, 15, 15, 0.1);
+  --accent: #ff4e1a;
+  --gold: #d4a13a;
+  --card: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV (simplified) */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 22px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-family: 'Anton', sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: var(--ink);
+  text-transform: uppercase;
+}
+.logo span { color: var(--accent); }
+.nav-back {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 10px 18px;
+  border: 1.5px solid var(--ink);
+  border-radius: 100px;
+  transition: all 0.2s;
+}
+.nav-back:hover { background: var(--ink); color: var(--bg); }
+
+/* LEGAL CONTENT */
+.legal-hero {
+  padding: 80px 32px 40px;
+  text-align: center;
+  background: var(--bg);
+}
+.legal-hero .eyebrow {
+  font-family: 'Anton', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+.legal-hero h1 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(44px, 8vw, 88px);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 18px;
+}
+.legal-hero .updated {
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.legal-body {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 40px 32px 100px;
+}
+.legal-body h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(26px, 4vw, 36px);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 48px 0 16px;
+  color: var(--ink);
+  line-height: 1.1;
+}
+.legal-body h2:first-child { margin-top: 0; }
+.legal-body h3 {
+  font-family: 'Archivo', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin: 28px 0 10px;
+}
+.legal-body p {
+  font-size: 16px;
+  margin-bottom: 16px;
+  color: var(--ink-soft);
+}
+.legal-body strong { color: var(--ink); font-weight: 700; }
+.legal-body ul, .legal-body ol {
+  margin: 0 0 20px 24px;
+  padding: 0;
+}
+.legal-body li {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: var(--ink-soft);
+  padding-left: 6px;
+}
+.legal-body li::marker { color: var(--accent); }
+.legal-body a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.legal-callout {
+  background: #FFF4ED;
+  border-left: 5px solid var(--accent);
+  border-top: 1px solid var(--accent);
+  border-right: 1px solid var(--accent);
+  border-bottom: 1px solid var(--accent);
+  padding: 22px 24px;
+  margin: 28px 0;
+  border-radius: 4px;
+}
+.legal-callout .label {
+  font-family: 'Archivo', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+  display: block;
+}
+.legal-callout p { font-size: 15px; margin-bottom: 10px; }
+.legal-callout p:last-child { margin-bottom: 0; }
+
+/* FOOTER */
+footer { background: #050505; color: var(--bg); padding: 60px 32px 28px; }
+.foot-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(245, 241, 234, 0.1);
+}
+.foot-inner .logo { color: var(--bg); font-size: 30px; margin-bottom: 14px; display: inline-block; }
+.foot-inner p { color: rgba(245, 241, 234, 0.55); font-size: 14px; max-width: 480px; margin: 0 auto 20px; }
+.foot-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+.foot-links a {
+  color: rgba(245, 241, 234, 0.7);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+.foot-links a:hover { color: var(--accent); }
+.foot-bottom {
+  max-width: 1320px;
+  margin: 24px auto 0;
+  text-align: center;
+  font-size: 11px;
+  color: rgba(245, 241, 234, 0.4);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .nav-inner { padding: 14px 16px; }
+  .logo { font-size: 20px; }
+  .nav-back { padding: 8px 14px; font-size: 11px; }
+  .legal-hero { padding: 50px 18px 30px; }
+  .legal-body { padding: 30px 18px 70px; }
+  .legal-body h2 { margin: 36px 0 12px; }
+  .legal-body p, .legal-body li { font-size: 15px; }
+  footer { padding: 40px 18px 20px; }
+  .foot-links { gap: 16px; }
+  .foot-links a { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">BUILT<span>.</span>BY ME</a>
+    <a href="index.html" class="nav-back">← Back to Shop</a>
+  </div>
+</nav>
+
+<section class="legal-hero">
+  <div class="eyebrow">★ LEGAL ★</div>
+  <h1>Privacy Policy</h1>
+  <div class="updated">Last updated: 19 May 2026</div>
+</section>
+
+<section class="legal-body">
+
+<h2>About This Policy</h2>
+<p>This policy explains what information Built.By Me collects, why we collect it, and what we do with it. We're a small Australian business and we keep this simple.</p>
+<p>Built.By Me (ABN 85 203 781 470) is a sole trader business based in Queensland, Australia. References to "we," "us," "our," and "Built.By Me" mean this business and its operator. The operator's name is available on request &mdash; email us at the address below.</p>
+
+<h2>What We Collect</h2>
+<p>We collect personal information from you in the following ways:</p>
+<h3>When you buy a product</h3>
+<ul>
+  <li>Your email address (so we can send you your purchase)</li>
+  <li>Your name (if you provide it)</li>
+  <li>Your country and approximate location (so we can comply with tax rules)</li>
+  <li>Order details (which products you bought, when, and for how much)</li>
+</ul>
+<p><strong>We do NOT collect or store your credit card details.</strong> Payments are handled entirely by Stripe. Stripe's privacy policy applies to your payment data: <a href="https://stripe.com/au/privacy" target="_blank" rel="noopener">stripe.com/au/privacy</a></p>
+
+<h3>When you visit the site</h3>
+<ul>
+  <li>Standard web-server logs (IP address, browser type, pages viewed, referring site, timestamps) — used to keep the site secure and understand basic traffic patterns</li>
+  <li>Cookies set by our hosting provider (currently GitHub Pages) for basic site functionality</li>
+</ul>
+<p>We do not currently use analytics platforms (like Google Analytics) or advertising trackers. If we add these in the future, we'll update this policy.</p>
+
+<h2>Why We Collect It</h2>
+<p>We use the information we collect to:</p>
+<ul>
+  <li>Process your order and deliver your products</li>
+  <li>Send you receipts and order-related emails</li>
+  <li>Respond to your support questions</li>
+  <li>Comply with our legal and tax obligations</li>
+  <li>Detect and prevent fraud or abuse of the site</li>
+</ul>
+<p>We don't use your information for any other purpose without your permission.</p>
+
+<h2>Marketing Emails</h2>
+<p>We don't currently send marketing or promotional emails. If we start a mailing list in the future, you'll have to opt in — you won't be added automatically because you bought a product.</p>
+
+<h2>Who We Share It With</h2>
+<p>We share your information only with the third-party services we use to run the business:</p>
+<ul>
+  <li><strong>Stripe</strong> (payment processing) — Stripe handles all card payments and is responsible for the security of your payment data</li>
+  <li><strong>Email providers</strong> (currently Gmail / Google Workspace) — to send you your purchased files</li>
+  <li><strong>Hosting providers</strong> (currently GitHub Pages) — who host the website itself</li>
+</ul>
+<p>We do not sell or rent your personal information to anyone, ever. We only disclose it to third parties when required by Australian law (e.g. a valid court order) or to prevent fraud.</p>
+
+<h2>How We Store It</h2>
+<p>We store your information in standard, password-protected business accounts (currently Gmail and Stripe's secure dashboard). We keep order records for at least 5 years to comply with Australian tax law. After that, records may be deleted or anonymised.</p>
+
+<h2>International Transfers</h2>
+<p>Some of our service providers (Stripe, GitHub, Google) are based outside Australia. By using our site or buying a product, you consent to your information being transferred to and stored in countries where those services operate. These providers all have their own privacy obligations and security standards.</p>
+
+<h2>Your Rights</h2>
+<p>Under Australian privacy law, you have the right to:</p>
+<ul>
+  <li>Request a copy of the personal information we hold about you</li>
+  <li>Ask us to correct any information that's inaccurate</li>
+  <li>Ask us to delete your information (subject to our legal record-keeping obligations)</li>
+  <li>Withdraw consent for us to contact you (we'll stop, except for transactional emails about an active order)</li>
+  <li>Complain to the Office of the Australian Information Commissioner (OAIC) if you think we've mishandled your information: <a href="https://www.oaic.gov.au/" target="_blank" rel="noopener">oaic.gov.au</a></li>
+</ul>
+<p>To exercise any of these rights, email <a href="mailto:hello@builtbyme.com.au">hello@builtbyme.com.au</a> from the email address you used to make your purchase.</p>
+
+<h2>Children</h2>
+<p>This site and its products are not intended for anyone under 18. We don't knowingly collect information from minors. If you're under 18, please don't buy our products or send us your information.</p>
+
+<h2>Cookies</h2>
+<p>We don't set our own cookies. Our hosting provider (GitHub Pages) may set basic functional cookies. Stripe's checkout page sets cookies that are necessary to process your payment. If we add analytics or marketing cookies in the future, we'll add a banner asking your consent.</p>
+
+<h2>Changes to This Policy</h2>
+<p>We may update this policy from time to time. Significant changes will be posted here with an updated "Last updated" date. We won't reduce your privacy rights without notice.</p>
+
+<h2>Contact</h2>
+<p>Privacy questions: <a href="mailto:hello@builtbyme.com.au">hello@builtbyme.com.au</a></p>
+
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <a href="index.html" class="logo">BUILT<span style="color:#ff4e1a">.</span>BY ME</a>
+    <p>Programs and meal plans built from real transformation — not theory.</p>
+    <div class="foot-links">
+      <a href="index.html">Shop</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="disclaimer.html">Medical Disclaimer</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Built.By.Me · All rights reserved</span>
+  </div>
+</footer>
+
+</body>
+</html>

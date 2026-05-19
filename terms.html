@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Terms of Service · Built.By Me</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f1ea;
+  --bg-warm: #ede5d4;
+  --paper: #faf6ee;
+  --ink: #0f0f0f;
+  --ink-soft: #2a2a28;
+  --muted: #6b6660;
+  --line: rgba(15, 15, 15, 0.1);
+  --accent: #ff4e1a;
+  --gold: #d4a13a;
+  --card: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV (simplified) */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 22px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-family: 'Anton', sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: var(--ink);
+  text-transform: uppercase;
+}
+.logo span { color: var(--accent); }
+.nav-back {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 10px 18px;
+  border: 1.5px solid var(--ink);
+  border-radius: 100px;
+  transition: all 0.2s;
+}
+.nav-back:hover { background: var(--ink); color: var(--bg); }
+
+/* LEGAL CONTENT */
+.legal-hero {
+  padding: 80px 32px 40px;
+  text-align: center;
+  background: var(--bg);
+}
+.legal-hero .eyebrow {
+  font-family: 'Anton', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+.legal-hero h1 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(44px, 8vw, 88px);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 18px;
+}
+.legal-hero .updated {
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.legal-body {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 40px 32px 100px;
+}
+.legal-body h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(26px, 4vw, 36px);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 48px 0 16px;
+  color: var(--ink);
+  line-height: 1.1;
+}
+.legal-body h2:first-child { margin-top: 0; }
+.legal-body h3 {
+  font-family: 'Archivo', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin: 28px 0 10px;
+}
+.legal-body p {
+  font-size: 16px;
+  margin-bottom: 16px;
+  color: var(--ink-soft);
+}
+.legal-body strong { color: var(--ink); font-weight: 700; }
+.legal-body ul, .legal-body ol {
+  margin: 0 0 20px 24px;
+  padding: 0;
+}
+.legal-body li {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: var(--ink-soft);
+  padding-left: 6px;
+}
+.legal-body li::marker { color: var(--accent); }
+.legal-body a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.legal-callout {
+  background: #FFF4ED;
+  border-left: 5px solid var(--accent);
+  border-top: 1px solid var(--accent);
+  border-right: 1px solid var(--accent);
+  border-bottom: 1px solid var(--accent);
+  padding: 22px 24px;
+  margin: 28px 0;
+  border-radius: 4px;
+}
+.legal-callout .label {
+  font-family: 'Archivo', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+  display: block;
+}
+.legal-callout p { font-size: 15px; margin-bottom: 10px; }
+.legal-callout p:last-child { margin-bottom: 0; }
+
+/* FOOTER */
+footer { background: #050505; color: var(--bg); padding: 60px 32px 28px; }
+.foot-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(245, 241, 234, 0.1);
+}
+.foot-inner .logo { color: var(--bg); font-size: 30px; margin-bottom: 14px; display: inline-block; }
+.foot-inner p { color: rgba(245, 241, 234, 0.55); font-size: 14px; max-width: 480px; margin: 0 auto 20px; }
+.foot-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+.foot-links a {
+  color: rgba(245, 241, 234, 0.7);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+.foot-links a:hover { color: var(--accent); }
+.foot-bottom {
+  max-width: 1320px;
+  margin: 24px auto 0;
+  text-align: center;
+  font-size: 11px;
+  color: rgba(245, 241, 234, 0.4);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .nav-inner { padding: 14px 16px; }
+  .logo { font-size: 20px; }
+  .nav-back { padding: 8px 14px; font-size: 11px; }
+  .legal-hero { padding: 50px 18px 30px; }
+  .legal-body { padding: 30px 18px 70px; }
+  .legal-body h2 { margin: 36px 0 12px; }
+  .legal-body p, .legal-body li { font-size: 15px; }
+  footer { padding: 40px 18px 20px; }
+  .foot-links { gap: 16px; }
+  .foot-links a { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">BUILT<span>.</span>BY ME</a>
+    <a href="index.html" class="nav-back">← Back to Shop</a>
+  </div>
+</nav>
+
+<section class="legal-hero">
+  <div class="eyebrow">★ LEGAL ★</div>
+  <h1>Terms of Service</h1>
+  <div class="updated">Last updated: 19 May 2026</div>
+</section>
+
+<section class="legal-body">
+
+<h2>About These Terms</h2>
+<p>These terms govern your purchase and use of any product sold by Built.By Me (the "Site"). By placing an order, you agree to these terms. If you don't agree, don't buy.</p>
+<p>Built.By Me (ABN 85 203 781 470) is a sole trader business based in Queensland, Australia. References to "we," "us," "our," and "Built.By Me" mean this business and its operator. The operator's name is available on request &mdash; email us at the address below.</p>
+
+<div class="legal-callout">
+  <span class="label">★ THESE TERMS REFERENCE TWO OTHER DOCUMENTS</span>
+  <p>You should read these alongside our <a href="disclaimer.html">Medical Disclaimer</a> and <a href="privacy.html">Privacy Policy</a>. All three apply when you buy or use a Built.By Me product.</p>
+</div>
+
+<h2>What You're Buying</h2>
+<p>The products sold on this site are <strong>digital downloads</strong> — PDF e-books and training programs. They are delivered electronically via email after payment is processed. There is no physical product, and nothing will be shipped.</p>
+<p>Each product is licensed, not sold outright. When you buy, you receive a personal, non-transferable, non-exclusive licence to:</p>
+<ul>
+  <li>Download the PDF(s) for your own personal, non-commercial use</li>
+  <li>Print copies for your own use</li>
+  <li>Store the files on your personal devices</li>
+</ul>
+<p>You may NOT:</p>
+<ul>
+  <li>Resell, lease, sub-licence, or distribute the files to any other person</li>
+  <li>Upload the files to any public or shared platform (Google Drive, Dropbox, Discord, torrent, etc.)</li>
+  <li>Use any part of the content in any other product or service you create</li>
+  <li>Claim authorship of any of the content</li>
+</ul>
+<p>All copyright, trademarks, and intellectual-property rights in the products remain with Built.By Me.</p>
+
+<h2>Pricing and Payment</h2>
+<p>Prices on this site are shown in Australian Dollars (AUD) and are inclusive of any applicable Australian taxes at the time of sale. Payments are processed by Stripe; we never see or store your card details.</p>
+<p>By placing an order you confirm that the payment method you use is yours, that you are authorised to use it, and that the billing information you provide is accurate.</p>
+<p>We reserve the right to refuse or cancel any order at our discretion (including for suspected fraud, payment failure, or breach of these terms). In that case, any payment taken will be refunded.</p>
+
+<h2>Delivery</h2>
+<p>After successful payment, your PDF(s) will be sent to the email address you provided at checkout, normally within a few hours of purchase. If you have not received your files within 24 hours, please check your spam folder first and then email us at <a href="mailto:hello@builtbyme.com.au">hello@builtbyme.com.au</a>.</p>
+
+<h2>Refunds</h2>
+<p>Because our products are digital downloads delivered instantly, <strong>refunds are not offered as a matter of course</strong> once a file has been delivered.</p>
+<p>Refunds will be provided where required by Australian Consumer Law, including (but not limited to) where:</p>
+<ul>
+  <li>The product is significantly different from how it was described on the site</li>
+  <li>The file is corrupted, unreadable, or otherwise unusable</li>
+  <li>You were charged but did not receive the product within a reasonable time</li>
+  <li>The product has a "major problem" as defined by the Australian Consumer Law</li>
+</ul>
+<p>To request a refund under any of the above, email <a href="mailto:hello@builtbyme.com.au">hello@builtbyme.com.au</a> within a reasonable time of purchase and explain the issue. Provide your order number and the email address used at checkout.</p>
+<p>"Changed my mind," "I didn't need it after all," or "I already knew most of this" are not grounds for a refund.</p>
+
+<h2>No Medical or Professional Advice</h2>
+<p>You acknowledge that you have read our <a href="disclaimer.html">Medical Disclaimer</a> and understand that none of our products are medical, nutritional, or psychological advice. You are responsible for your own health decisions.</p>
+
+<h2>Acceptable Use</h2>
+<p>You agree not to use the site or any product:</p>
+<ul>
+  <li>For any unlawful purpose</li>
+  <li>In any way that could harm, disable, or impair the site</li>
+  <li>To attempt to gain unauthorised access to any part of the site</li>
+  <li>To harvest or scrape data, contact details, or product files</li>
+  <li>To distribute spam, malware, or other harmful content</li>
+</ul>
+
+<h2>Limitation of Liability</h2>
+<p>To the maximum extent permitted by law:</p>
+<ul>
+  <li>Our products are provided "as is" without warranties of any kind</li>
+  <li>We are not liable for any indirect, incidental, consequential, or punitive damages arising from your use of (or inability to use) our products</li>
+  <li>Our total liability for any claim arising from a product you bought is capped at the amount you paid for that product</li>
+</ul>
+<p>Nothing in this section excludes any consumer guarantee under the Australian Consumer Law that cannot legally be excluded.</p>
+
+<h2>Indemnity</h2>
+<p>You agree to indemnify and hold harmless Built.By Me, its author, and any associated parties from any claim, loss, or damage arising from your breach of these terms or your misuse of any product.</p>
+
+<h2>Changes to These Terms</h2>
+<p>We may update these terms from time to time. The version that applies to your order is the version that was in effect at the time you bought. Significant changes will be posted on this page with an updated "Last updated" date.</p>
+
+<h2>Governing Law</h2>
+<p>These terms are governed by the laws of Queensland, Australia. Any dispute that can't be resolved by email will be subject to the non-exclusive jurisdiction of the courts of Queensland.</p>
+
+<h2>Contact</h2>
+<p>Questions about these terms: <a href="mailto:hello@builtbyme.com.au">hello@builtbyme.com.au</a></p>
+
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <a href="index.html" class="logo">BUILT<span style="color:#ff4e1a">.</span>BY ME</a>
+    <p>Programs and meal plans built from real transformation — not theory.</p>
+    <div class="foot-links">
+      <a href="index.html">Shop</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="disclaimer.html">Medical Disclaimer</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Built.By.Me · All rights reserved</span>
+  </div>
+</footer>
+
+</body>
+</html>
